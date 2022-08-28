@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Filament\Facades\Filament;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -20,9 +21,12 @@ class AppServiceProvider extends ServiceProvider
      * Bootstrap any application services.
      *
      * @return void
+     * @throws \Exception
      */
     public function boot()
     {
-        //
+        Filament::registerTheme(
+            mix('css/filament.css'),
+        );
     }
 }
